@@ -7,17 +7,24 @@ fun main(){
     println(guideGame)
     println(exitGame)
 
-    fun guessNumber(){
+    fun guessNumber() {
+        println("Введите число для проверки:")
         val firstInput = readln().toInt()
-        if (firstInput in 1..100)        {
+        if (firstInput in 1..100) {
             println("Введите число:")
-            val secondInput = readln().toInt()
-                if(firstInput == secondInput)
-                    println("Вы угадали число!")
-            else if (firstInput > secondInput)
+            var secondInput = readln().toInt()
+            while (firstInput != secondInput) {
+                if (firstInput > secondInput){
                     println("Загаданное число больше")
-                else println("Загаданное число меньше")
-
+                    println("Введите число:")
+                    secondInput = readln().toInt()
+                }
+                else{println("Загаданное число меньше")
+                    println("Введите число:")
+                    secondInput = readln().toInt()
+                }
+            }
+                println("Вы угадали число!")
         }
         else println("Число $firstInput лежит за пределами заданного промежутка")
     }
